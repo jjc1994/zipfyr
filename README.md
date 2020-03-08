@@ -15,6 +15,7 @@ In addition, if an HTTPS error message pops up, a "Try Again" button will appear
 ## Wireframes: 
 Note that for tablet and mobile, landscape is the preferred orientation.
   - Start Screen
+  ```
 -----------------------
 |                     |
 |       Zipfyr        |
@@ -22,7 +23,9 @@ Note that for tablet and mobile, landscape is the preferred orientation.
 |    Click to Play    |
 |                     |
 -----------------------
+```
   - Question Interface
+  ```
 -----------------------
 |        Score        |
 |          |          |
@@ -30,7 +33,9 @@ Note that for tablet and mobile, landscape is the preferred orientation.
 | [Word1]  | [Word2]  |
 |          |          |
 -----------------------
+```
   - Answer Screen
+  ```
 -----------------------
 |        Score        |
 |          |          |
@@ -38,7 +43,9 @@ Note that for tablet and mobile, landscape is the preferred orientation.
 | [Zipf1]  | [Zipf2]  |
 |          |          |
 -----------------------
+```
   - HTTP Error Screen
+  ```
 -----------------------
 |        Score        |
 |    -------------    |
@@ -46,6 +53,7 @@ Note that for tablet and mobile, landscape is the preferred orientation.
 |    -------------    |
 |          |          |
 -----------------------
+```
 
 ## API: Which API you will be using.
 Random Word API
