@@ -16,45 +16,13 @@ In addition, if an HTTPS error message pops up, a "Try Again" button will appear
 ## Wireframes: 
 Note that for tablet and mobile, landscape is the preferred orientation.
   - Start Screen
-  ```
------------------------
-|                     |
-|       Zipfyr        |
-|                     |
-|    Click to Play    |
-|                     |
------------------------
-```
-  - Question Interface
-  ```
------------------------
-|        Score        |
-|          |          |
-|          |          |
-| [Word1]  | [Word2]  |
-|          |          |
------------------------
-```
+https://github.com/jjc1994/zipfyr/blob/master/ZipfyrStartScreen.jpg
+  - Question Screen
+https://github.com/jjc1994/zipfyr/blob/master/ZipfyrQuestionScreen.jpg
   - Answer Screen
-  ```
------------------------
-|        Score        |
-|          |          |
-| [Word1]  | [Word2]  |
-| [Freq1]  | [Freq2]  |
-|          |          |
------------------------
-```
-  - HTTP Error Screen
-  ```
------------------------
-|        Score        |
-|    -------------    |
-|    |[Error Msg]|    |
-|    -------------    |
-|          |          |
------------------------
-```
+https://github.com/jjc1994/zipfyr/blob/master/ZipfyrAnswerScreen.jpg
+  - HTTPS Error Screen
+https://github.com/jjc1994/zipfyr/blob/master/ZipfyrHTTPSErrorScreen.jpg
 
 ## API: 
 Random Word API
