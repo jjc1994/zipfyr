@@ -80,11 +80,11 @@ const api2 = (word) => axios.get("https://api.datamuse.com/words/?sp=" + word + 
         console.log("Y");
         console.log(response.data);
         if (word === response.data[0].word) {
-		        console.log("words match");
-		    }
+            console.log("words match");
+	}
         else {
-		        console.log("words do not match");
-		    }
+	    console.log("words do not match");
+	}
     })
     .catch(function(error) {
         console.log("N");
