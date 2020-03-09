@@ -40,7 +40,7 @@ Note that for tablet and mobile, landscape is the preferred orientation.
 |        Score        |
 |          |          |
 | [Word1]  | [Word2]  |
-| [Zipf1]  | [Zipf2]  |
+| [Freq1]  | [Freq2]  |
 |          |          |
 -----------------------
 ```
@@ -55,7 +55,7 @@ Note that for tablet and mobile, landscape is the preferred orientation.
 -----------------------
 ```
 
-## API: Which API you will be using.
+## API: 
 Random Word API
 Datamuse API
 ```
@@ -84,7 +84,7 @@ const api2 = (word) => axios.get("https://api.datamuse.com/words/?sp=" + word + 
 api1();
 ```
 
-## MVP: Write out what your goals are for MVP, including the minimum, need-to-have features of your app.
+## MVP: 
 1. Be built with HTML, CSS, and JavaScript.
   - The HTML5 and CSS will be barebones compared to the JavaScript bulk. 
   - The CSS background will change color depending on whether the answer picked is correct or incorrect.
