@@ -2,7 +2,7 @@
 A high-low guessing game based on the English language
 
 ## Title: 
-Ziphyr
+Zipfyr
 
 ## Description: 
 Do you think you can handle high-low with random playing cards?
