@@ -16,13 +16,13 @@ In addition, if an HTTPS error message pops up, a "Try Again" button will appear
 ## Wireframes: 
 Note that for tablet and mobile, landscape is the preferred orientation.
   ### Start Screen
-  ![](https://github.com/jjc1994/zipfyr/blob/master/ZipfyrStartScreen.jpg)
+  ![](https://github.com/jjc1994/zipfyr/blob/master/ZipfyrStartScreen.png)
   ### Question Screen
-  ![](https://github.com/jjc1994/zipfyr/blob/master/ZipfyrQuestionScreen.jpg)
+  ![](https://github.com/jjc1994/zipfyr/blob/master/ZipfyrQuestionScreen.png)
   ### Answer Screen
-  ![](https://github.com/jjc1994/zipfyr/blob/master/ZipfyrAnswerScreen.jpg)
+  ![](https://github.com/jjc1994/zipfyr/blob/master/ZipfyrAnswerScreen.png)
   ### HTTPS Error Screen
-  ![](https://github.com/jjc1994/zipfyr/blob/master/ZipfyrHTTPSErrorScreen.jpg)
+  ![](https://github.com/jjc1994/zipfyr/blob/master/ZipfyrHTTPSErrorScreen.png)
 
 ## API: 
 Random Word API
