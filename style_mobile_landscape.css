@@ -1,0 +1,215 @@
+
+/*  */
+/*  */
+/*  */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 540px) and (orientation: landscape){
+
+  body {
+    font-family: sans-serif; 
+    color: white; 
+  }
+  
+  #title {
+    text-align: center;
+    padding: 4px;
+  }
+
+  #title_screen {
+    margin: auto auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 95vw;
+    height: 95vh;
+    background-image:
+      radial-gradient(
+        grey,
+        black
+      );
+    display: block;
+  }
+
+  #title_body {
+    vertical-align: center;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+  }
+
+  #title h1 {
+    font-size: 36px;
+  }
+
+  #instructions div {
+    display: flex;
+    text-align: center;
+    left: 25%;
+    width: 50%;  
+  }
+  
+  #instructions ul {
+    list-style-type: square;
+    left: 25%;
+    width: 50%;  
+  }
+
+  #instructions h2 {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  #instructions li {
+    margin-left: 5%;
+    margin: 1px;
+    font-size: 11px;
+  }
+
+  p {
+    font-size: 11px;
+  }
+
+  ul{
+    margin-left: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  #menu li {
+    width: 70%;
+  }
+
+  #title_body footer div {
+    position: absolute;
+    bottom: 2.5vh;
+    left: 10vw;
+  }
+
+  #play_screen {
+    margin: auto auto;
+    width: 95vw;
+    height: 95vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    grid-row: 1fr 6fr 1fr;
+  }
+
+  main {
+    display: grid;
+    min-height: 75vh; 
+    grid-template-columns: 1fr 1fr;
+    background-color: black;
+  }
+
+  header {
+    height: 10vh;
+    background-image:
+      linear-gradient(
+        black,
+        grey
+      );
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  #left, #right {
+    min-height: 97%;
+    max-height: 97%;
+    width: 97%;
+    
+    margin: auto auto;
+    background-image:
+      radial-gradient(
+        grey,
+        black
+      );
+  }
+
+  #play_screen footer {
+    min-height: 10vh;
+    background-image:
+      linear-gradient(
+        grey,
+        black
+      );
+  }
+
+  #play_screen footer div {
+    position: absolute;
+    bottom: 3vh;
+    left: 10vw;
+    right: 10vw;
+    width: inherit;
+  }
+
+  #left_box, #right_box {
+    display: "block";
+    text-align: center;
+    margin-top: 12.5%;
+  }
+
+  #left button, #right button {
+    height: 8%;
+    background-image:
+      linear-gradient(
+        silver,
+        grey
+      );
+    border: 5px solid black;
+    border-radius: 5px;
+    color: white;
+    padding: 0 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.25rem;
+    text-align: center;
+    margin-top: 12.5%;
+  }
+
+  #start {
+    height: 12%;
+    background-image:
+      linear-gradient(
+        silver,
+        grey
+      );
+    border: 5px solid black;
+    border-radius: 5px;
+    color: white;
+    padding: 0px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    text-align: center;
+    
+  }
+
+  #left_line, #right_line {
+    display: none;
+    text-align: center;
+    margin-bottom: 12.5%h;
+    color: black;
+  }
+
+  #left_verdict, #right_verdict {
+    display: none;
+    text-align: center;
+    margin-bottom: 12.5%;
+  }
+
+  #left_response, #right_response {
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+  }
+}
