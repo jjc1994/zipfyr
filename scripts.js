@@ -1,74 +1,116 @@
 
 let score = 0;
+let genSwitch = true;
 
 const startGame = () => {
   let startButton = document.getElementById("start");
   startButton.disabled = true;
   displayScore();
-  round();
+  generate();
 }
 
-const round = async () => {
-  let word1 = "";
-  let word2 = "";
-  do {
-    word1 = await api1();
-  }
-  while (word1 === null || word1 === "");
-  do {
-    word2 = await api1();
-  }
-  while (word2 === null || word2 === "");
-  if (word1 !== word2 && word1 !== "" && word2 !== "" && !(word1.includes("-")) && !(word2.includes("-")) && !(word1.includes(" ")) && !(word2.includes(" "))) {
-    trigger = true;
+const generate = async () => {
+  if (genSwitch) {
+    let callA1 = async () => {
+      await fetch("https://random-word.ryanrk.com/api/en/word/random").then(response1a => response1a.json()).then(function (response2a) {
+        console.log(response2a);
+        if (response2a.length === 0) {
+          generate();
+        }
+        else {
+          let wordA1 = response2a[0];
+          let callB1 = async () => {
+            await fetch("https://random-word.ryanrk.com/api/en/word/random").then(response1a => response1a.json()).then(function (response2b) {
+              console.log(response2b);
+              if (response2b.length === 0) {
+                generate();
+              }
+              else {
+                let wordB1 = response2b[0];
 
-    let startScreen = document.getElementById("title_screen");
-    startScreen.style.display = "none";
-    let playScreen = document.getElementById("play_screen");
-    playScreen.style.display = "block";
+                let wordCheck = async () => { await checkWords(wordA1, wordB1); }
+                wordCheck();
 
-    displayQuestion(word1, word2);
+              }
+
+            });
+          }
+          callB1();
+        }
+      });
+    }
+    callA1();
   }
-  else {
-    round();
+}
+
+
+const checkWords = async (wordA1, wordB1) => {
+  let callA2 = async () => {
+    await fetch("https://api.datamuse.com/words/?sp=" + wordA1 + "&max=1").then(response1a => response1a.json()).then(function (response2a) {
+      console.log(response2a);
+
+      let wordA = wordA1;
+      if (response2a.length === 0) {
+        wordA = "";
+        generate();
+      }
+      else if (wordA.toLowerCase() === response2a[0].word) {
+        wordA = wordA.toLowerCase();
+      }
+      else {
+        wordA = response2a[0].word;
+      }
+
+      let callB2 = async () => {
+        await fetch("https://api.datamuse.com/words/?sp=" + wordB1 + "&max=1").then(response1b => response1b.json()).then(function (response2b) {
+          console.log(response2b);
+          let wordB = wordB1;
+
+          if (response2b.length === 0) {
+            wordB = "";
+            generate();
+          }
+          else if (wordB.toLowerCase() === response2b[0].word) {
+            wordB = wordB.toLowerCase();
+          }
+          else {
+            wordB = response2b[0].word;
+          }
+
+          console.log(wordA);
+          console.log(wordB);
+
+          if (wordA !== wordB && wordA !== "" && wordB !== "" && !(wordA.includes("-")) && !(wordB.includes("-")) && !(wordA.includes(" ")) && !(wordB.includes(" "))) {
+            if (genSwitch) {
+              let startScreen = document.getElementById("title_screen");
+              startScreen.style.display = "none";
+              let playScreen = document.getElementById("play_screen");
+              playScreen.style.display = "block";
+              displayQuestion(wordA, wordB);
+            }
+            genSwitch = false;
+          }
+          else {
+            generate();
+          }
+        });
+      }
+      callB2();
+
+    });
   }
+
+  callA2();
 }
 
 const displayScore = () => {
   let scoreSpan = document.getElementById("score_span");
+  console.log(score);
   scoreSpan.textContent = "";
   scoreSpan.textContent = score;
 }
 
-const api1 = async () => {
-  const response = await axios.get("https://random-word.ryanrk.com/api/en/word/random");
-  return api2(response.data[0]);
-}
-
-const api2 = async (query) => {
-  const response = await axios.get("https://api.datamuse.com/words/?sp=" + query + "&max=1");
-  if (response.data.length === 0) {
-    return "";
-  }
-  else if (query.toLowerCase() === response.data[0].word) {
-    return query.toLowerCase();
-  }
-  else {
-    return response.data[0].word;
-  }
-}
-
-const api3 = async (query) => {
-  const response = await axios.get("https://api.datamuse.com/words/?sp=" + query + "&max=1&md=fr");
-  if (query.toLowerCase() === response.data[0].word) {
-    return response.data[0].tags[1];
-  }
-  else {
-    return "";
-  }
-}
-
-const displayQuestion = (word1, word2) => {
+const displayQuestion = (wordA, wordB) => {
 
   let left_screen = document.getElementById("left");
   left_screen.style.backgroundImage = "linear-gradient(silver, grey)";
@@ -80,8 +122,8 @@ const displayQuestion = (word1, word2) => {
   let leftButtonCreate = document.createElement("button");
   leftButtonCreate.id = "left_choice";
   leftButtonCreate.disabled = false;
-  leftButtonCreate.innerText = word1;
-  leftButtonCreate.addEventListener("click", function () { disableButtons(word1, word2, "left") });
+  leftButtonCreate.innerText = wordA;
+  leftButtonCreate.addEventListener("click", function () { disableButtons(wordA, wordB, "left") });
   leftButton.appendChild(leftButtonCreate);
 
   let rightButton = document.getElementById("right_button");
@@ -89,8 +131,8 @@ const displayQuestion = (word1, word2) => {
   let rightButtonCreate = document.createElement("button");
   rightButtonCreate.id = "right_choice";
   rightButtonCreate.disabled = false;
-  rightButtonCreate.innerText = word2;
-  rightButtonCreate.addEventListener("click", function () { disableButtons(word1, word2, "right") });
+  rightButtonCreate.innerText = wordB;
+  rightButtonCreate.addEventListener("click", function () { disableButtons(wordA, wordB, "right") });
   rightButton.appendChild(rightButtonCreate);
 
   let leftLine = document.getElementById("left_line");
@@ -118,20 +160,50 @@ const displayQuestion = (word1, word2) => {
 
 }
 
-const disableButtons = (word1, word2, choice) => {
+const disableButtons = (wordA, wordB, choice) => {
 
   let leftChoice = document.getElementById("left_choice");
   leftChoice.disabled = true;
   let rightChoice = document.getElementById("right_choice");
   rightChoice.disabled = true;
-  checkFreq(word1, word2, choice);
+  checkFreq(wordA, wordB, choice);
 
 }
 
-const checkFreq = async (word1, word2, choice) => {
+const checkFreq = async (wordA, wordB, choice) => {
 
-  let freq1str = await api3(word1);
-  let freq2str = await api3(word2);
+  const callA3 = async () => {
+    await fetch("https://api.datamuse.com/words/?sp=" + wordA + "&max=1&md=fr").then(response1 => response1.json()).then(function (response2a) {
+      console.log(response2a);
+      if (response2a.length === 0) {
+        setTimeout(function () {
+          callA3();
+        }, 1000);
+      }
+      else if (wordA.toLowerCase() === response2a[0].word) {
+        freq1str = response2a[0].tags[1];
+        const callB3 = async () => {
+          await fetch("https://api.datamuse.com/words/?sp=" + wordB + "&max=1&md=fr").then(response1 => response1.json()).then(function (response2b) {
+            console.log(response2b);
+            if (response2b.length === 0) {
+              setTimeout(function () {
+                callB3();
+              }, 1000);
+            }
+            else if (wordB.toLowerCase() === response2b[0].word) {
+              freq2str = response2b[0].tags[1];
+              postAnswer(wordA, wordB, choice, freq1str, freq2str);
+            }
+          });
+        }
+        callB3();
+      }
+    });
+  }
+  callA3();
+}
+
+const postAnswer = (wordA, wordB, choice, freq1str, freq2str) => {
   let freq1 = parseFloat(freq1str.substring(2));
   let freq2 = parseFloat(freq2str.substring(2));
 
@@ -159,7 +231,8 @@ const checkFreq = async (word1, word2, choice) => {
   }
 
   setTimeout(function () {
-    round();
+    genSwitch = true;
+    generate();
   }, 4000);
 }
 
