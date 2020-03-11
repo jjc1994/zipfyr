@@ -5,9 +5,11 @@
 
 @media only screen and (min-device-width: 540px) and (orientation: portrait) {
 
-  body {
+  html, body {
     font-family: sans-serif; 
     color: white; 
+    display: block;
+    overflow: hidden;
   }
   
   #title {
@@ -16,7 +18,7 @@
   }
 
   #title_screen {
-    margin: auto auto;
+    margin: 0 auto;
     top: 0;
     left: 0;
     bottom: 0;
@@ -40,14 +42,15 @@
   }
 
   #instructions div { 
-    margin: 0 auto;
     text-align: center;
     left: 25%;
     width: 75%;  
+    margin: 8px auto;
   }
 
   #instructions ul {
     list-style-type: square;
+    text-indent: 5px;
     width: 100%;  
   }
 
@@ -58,7 +61,7 @@
 
   #instructions li {
     margin-left: 5%;
-    margin: 1px;
+    margin: 25px;
     font-size: 1em;
   }
 
@@ -116,7 +119,6 @@
     min-height: 97%;
     max-height: 97%;
     width: 97%;
-    
     margin: auto auto;
     background-image:
       radial-gradient(

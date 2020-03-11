@@ -5,9 +5,11 @@
 
 @media only screen and (min-device-width: 960px) and (orientation: landscape) {
 
-  body {
+  html, body {
     font-family: sans-serif; 
     color: white; 
+    display: block;
+    overflow: hidden;
   }
   
   #title {
@@ -16,7 +18,7 @@
   }
 
   #title_screen {
-    margin: auto auto;
+    margin: 0 auto;
     top: 0;
     left: 0;
     bottom: 0;
@@ -40,14 +42,15 @@
   }
 
   #instructions div { 
-    margin: 0 auto;
     text-align: center;
-    left: 25%;
+    margin-left: 25%;
     width: 50%;  
+    margin: 8px auto;
   }
 
   #instructions ul {
     list-style-type: square;
+    text-indent: 5px;
     width: 100%;  
   }
 
@@ -57,7 +60,7 @@
   }
 
   #instructions li {
-    margin: 1px;
+    margin-left: 12%;
     font-size: 14px;
   }
 
@@ -81,7 +84,7 @@
   }
 
   #play_screen {
-    margin: auto auto;
+    margin: 0 auto;
     max-width: 95vw;
     height: 95vh;
     top: 0;
