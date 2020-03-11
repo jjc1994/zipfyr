@@ -13,7 +13,6 @@ const generate = async () => {
   if (genSwitch) {
     let callA1 = async () => {
       await fetch("https://random-word.ryanrk.com/api/en/word/random").then(response1a => response1a.json()).then(function (response2a) {
-        console.log(response2a);
         if (response2a.length === 0) {
           generate();
         }
@@ -21,7 +20,6 @@ const generate = async () => {
           let wordA1 = response2a[0];
           let callB1 = async () => {
             await fetch("https://random-word.ryanrk.com/api/en/word/random").then(response1a => response1a.json()).then(function (response2b) {
-              console.log(response2b);
               if (response2b.length === 0) {
                 generate();
               }
@@ -47,7 +45,6 @@ const generate = async () => {
 const checkWords = async (wordA1, wordB1) => {
   let callA2 = async () => {
     await fetch("https://api.datamuse.com/words/?sp=" + wordA1 + "&max=1").then(response1a => response1a.json()).then(function (response2a) {
-      console.log(response2a);
 
       let wordA = wordA1;
       if (response2a.length === 0) {
@@ -63,7 +60,6 @@ const checkWords = async (wordA1, wordB1) => {
 
       let callB2 = async () => {
         await fetch("https://api.datamuse.com/words/?sp=" + wordB1 + "&max=1").then(response1b => response1b.json()).then(function (response2b) {
-          console.log(response2b);
           let wordB = wordB1;
 
           if (response2b.length === 0) {
@@ -76,9 +72,6 @@ const checkWords = async (wordA1, wordB1) => {
           else {
             wordB = response2b[0].word;
           }
-
-          console.log(wordA);
-          console.log(wordB);
 
           if (wordA !== wordB && wordA !== "" && wordB !== "" && !(wordA.includes("-")) && !(wordB.includes("-")) && !(wordA.includes(" ")) && !(wordB.includes(" "))) {
             if (genSwitch) {
@@ -105,7 +98,6 @@ const checkWords = async (wordA1, wordB1) => {
 
 const displayScore = () => {
   let scoreSpan = document.getElementById("score_span");
-  console.log(score);
   scoreSpan.textContent = "";
   scoreSpan.textContent = score;
 }
@@ -174,7 +166,6 @@ const checkFreq = async (wordA, wordB, choice) => {
 
   const callA3 = async () => {
     await fetch("https://api.datamuse.com/words/?sp=" + wordA + "&max=1&md=fr").then(response1 => response1.json()).then(function (response2a) {
-      console.log(response2a);
       if (response2a.length === 0) {
         setTimeout(function () {
           callA3();
@@ -184,7 +175,6 @@ const checkFreq = async (wordA, wordB, choice) => {
         freq1str = response2a[0].tags[1];
         const callB3 = async () => {
           await fetch("https://api.datamuse.com/words/?sp=" + wordB + "&max=1&md=fr").then(response1 => response1.json()).then(function (response2b) {
-            console.log(response2b);
             if (response2b.length === 0) {
               setTimeout(function () {
                 callB3();
