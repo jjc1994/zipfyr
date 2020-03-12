@@ -30,6 +30,8 @@
         grey,
         black
       );
+      display: grid;
+      grid-template-rows: 9fr 1fr;
   }
 
   #title_body {
@@ -79,7 +81,7 @@
   #title_screen footer {
     min-height: 10vh;
     display: fixed;
-    margin: 0 auto;
+    bottom: 0;
     padding: 2px;
     background-image:
       linear-gradient(
