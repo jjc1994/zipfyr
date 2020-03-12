@@ -3,7 +3,7 @@
 /*  */
 /*  */
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 540px) and (orientation: portrait){
+@media only screen and (min-device-width: 320px) and (max-device-width: 539px) and (orientation: portrait){
 
   html, body {
     font-family: sans-serif; 
@@ -30,11 +30,13 @@
         grey,
         black
       );
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
   }
 
   #title_body {
-    vertical-align: center;
+    vertical-align: middle;
   }
 
   #title h1 {
@@ -81,10 +83,23 @@
     width: 70%;
   }
 
-  #title_body footer div {
-    position: absolute;
-    bottom: 5vh;
+  #title_screen footer {
+    min-height: 10vh;
+    margin: 0 auto;
+    padding: 2px;
+    display: fixed;
+    background-image:
+      linear-gradient(
+        grey,
+        black
+      );
+  }
+
+  #title_screen footer div {
+    text-align: center;
+    vertical-align: middle;
     left: 10vw;
+    padding: auto;
   }
 
   #play_screen {
@@ -117,6 +132,10 @@
     align-items: center;
     justify-content: space-around;
   }
+
+  header h2 {
+    text-align: center;
+  }
   
   #left, #right {
     min-height: 97%;
@@ -140,7 +159,7 @@
   }
 
   #play_screen footer div {
-    position: absolute;
+    margin-left: 5vw;
     bottom: 5vh;
     left: 10vw;
     right: 10vw;
